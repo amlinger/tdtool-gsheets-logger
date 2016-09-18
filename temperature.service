@@ -1,0 +1,15 @@
+[Unit]
+Description=Temperature Logging Service
+after=multi-user.target
+
+[Service]
+Type=idle
+Environment="GOOGLE_SPREADSHEET_KEY=<insert spreadsheet key here>" 
+ExecStart=/usr/bin/python <path to init.py>
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+
